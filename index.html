@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Your Pop-Up in Thailand | Turnkey Retail Agency</title>
+<title>TIS-POP UP | Penetrate Thailand's Mass Market</title>
+<!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAF9; /* Warm Neutral - Stone 50 */
+            color: #1C1917; /* Stone 900 */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 350px;
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .nav-active {
+            color: #EA580C; /* Orange 600 */
+            border-bottom: 2px solid #EA580C;
+        }
+        .step-arrow::after {
+            content: "→";
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+        @media (max-width: 640px) {
+            .step-arrow::after {
+                content: "↓";
+                display: block;
+                margin-left: 0;
+                margin-top: 0.5rem;
+                transform: rotate(0deg);
+            }
+        }
+        .cta-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(234, 88, 12, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0); }
+        }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals (Stone) with Burnt Orange Accents for energy/retail urgency. -->
+    <!-- Application Structure Plan: 
+         1. Hero: Agency pitch - "Penetrate the Mass Market".
+         2. Market Intelligence: Why provincial Thailand is the real opportunity.
+         3. Urban vs Provincial: Bangkok vs Upcountry.
+         4. Our Turnkey Services: Roadshows, mobile setups, local permits.
+         5. Strategy Builder & Contact.
+    -->
+    <!-- Visualization & Content Choices:
+         - Market Drivers & Channels: Maintained Chart.js to build analytical authority.
+         - Localization Comparison: HTML Grid/Flex to show deep local insights.
+         - Agency Workflow: Styled HTML Flexbox diagram to show our process.
+         - Budget Allocation: Doughnut Chart (Chart.js) to set financial expectations for clients.
+         - Contact Form: Clean HTML/CSS form integration for immediate conversion.
+         - NO SVG/Mermaid: All icons are Unicode or CSS shapes.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-stone-50/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-stone-900">TIS-<span class="text-orange-600">POP UP</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="scrollToSection('market-data')" class="text-stone-600 hover:text-orange-600 font-medium transition-colors">Mass Market</button>
+                    <button onclick="scrollToSection('thailand-adapt')" class="text-stone-600 hover:text-orange-600 font-medium transition-colors">Provincial Strategy</button>
+                    <button onclick="scrollToSection('our-services')" class="text-stone-600 hover:text-orange-600 font-medium transition-colors">Roadshows</button>
+                    <button onclick="scrollToSection('contact-us')" class="bg-orange-600 text-white px-5 py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold shadow-md cta-pulse">Contact Us</button>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-stone-600 focus:outline-none text-2xl">☰</button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-b border-stone-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button onclick="scrollToSection('market-data')" class="block w-full text-left px-3 py-2 text-stone-600 font-medium hover:bg-stone-100">Mass Market</button>
+                <button onclick="scrollToSection('thailand-adapt')" class="block w-full text-left px-3 py-2 text-stone-600 font-medium hover:bg-stone-100">Provincial Strategy</button>
+                <button onclick="scrollToSection('our-services')" class="block w-full text-left px-3 py-2 text-stone-600 font-medium hover:bg-stone-100">Roadshows</button>
+                <button onclick="scrollToSection('contact-us')" class="block w-full text-left px-3 py-2 text-orange-600 font-bold hover:bg-stone-100">Contact Us Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-stone-900 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1583258292688-d0213c15a9ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+            <div class="lg:w-2/3">
+                <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-4 block">Your Provincial Retail Partner</span>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                    Penetrate Thailand's True Mass Market
+                </h1>
+                <p class="text-xl text-stone-300 mb-8 max-w-2xl">
+                    Look beyond Bangkok. TIS-POP UP designs, builds, and operates high-converting mobile retail and roadshows across Thailand's booming provincial hubs. Tap into the real purchasing power.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="scrollToSection('contact-us')" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors shadow-lg shadow-orange-600/30">Talk to an Expert</button>
+                    <button onclick="scrollToSection('our-services')" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-lg font-semibold transition-colors backdrop-blur-sm">Explore Our Services</button>
+                </div>
+            </div>
+        </div>
+        <!-- Stats Banner -->
+        <div class="bg-stone-800/90 backdrop-blur border-t border-stone-700">
+            <div class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-orange-500">70M+</div>
+                    <div class="text-sm text-stone-400 mt-1">Population Reach</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-orange-500">77</div>
+                    <div class="text-sm text-stone-400 mt-1">Provinces Covered</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-orange-500">Mobile</div>
+                    <div class="text-sm text-stone-400 mt-1">Turnkey Roadshows</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-orange-500">Local</div>
+                    <div class="text-sm text-stone-400 mt-1">Community Integration</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Market Intelligence (Why Thailand) -->
+    <section id="market-data" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center md:text-left">
+            <h2 class="text-3xl font-bold text-stone-900 mb-4">The Mass Market Opportunity</h2>
+            <p class="text-lg text-stone-600 max-w-3xl">
+                While brands fight over saturated Bangkok malls, the true volume and growth lie in provincial hubs (Chiang Mai, Khon Kaen, Korat, Chonburi). Upcountry consumers crave physical brand experiences and respond highly to local activations.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Chart 1: Consumer Drivers -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold text-stone-800">What Drives Provincial Consumers</h3>
+                    <div class="text-sm text-stone-500 bg-stone-100 px-2 py-1 rounded">2024 Mass Market Data</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="driversChart"></canvas>
+                </div>
+                <p class="mt-4 text-sm text-stone-500 italic">
+                    *Our insight: Product trials, freebies, and high-energy local promotions drastically outperform simple visual aesthetics outside the capital.
+                </p>
+            </div>
+
+            <!-- Chart 2: Channel Engagement -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold text-stone-800">Digital-to-Physical Funnel</h3>
+                    <div class="flex space-x-2">
+                        <button onclick="updatePlatformData('reach')" id="btn-reach" class="text-xs px-3 py-1 bg-stone-800 text-white rounded-full transition">Reach/Hype</button>
+                        <button onclick="updatePlatformData('conversion')" id="btn-conv" class="text-xs px-3 py-1 bg-stone-200 text-stone-600 rounded-full transition">Sales/CRM</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="platformChart"></canvas>
+                </div>
+                <p class="mt-4 text-sm text-stone-500 italic">
+                    *Our strategy: We use Facebook & TikTok for local geo-targeted reach, and physical roadshows to drive massive localized sales and LINE CRM captures.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Global Inspiration & Local Reality -->
+    <section id="thailand-adapt" class="py-16 bg-stone-100 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-stone-900 mb-4">Urban Saturated vs. Provincial Growth</h2>
+                <p class="text-lg text-stone-600 max-w-3xl">
+                    A strategy that works in central Bangkok often fails or is too expensive to scale nationwide. TIS-POP UP specializes in adapting your brand for the mass market through community-integrated events.
+                </p>
+            </div>
+
+            <!-- Toggle Switch -->
+            <div class="flex justify-center mb-8">
+                <div class="bg-stone-200 p-1 rounded-lg inline-flex">
+                    <button onclick="setLocalizationMode('behavior')" id="btn-behavior" class="px-6 py-2 rounded-md bg-white text-stone-900 shadow font-medium transition-all">Location Strategy</button>
+                    <button onclick="setLocalizationMode('tactical')" id="btn-tactical" class="px-6 py-2 rounded-md text-stone-600 font-medium hover:text-stone-900 transition-all">Engagement</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start" id="localization-content">
+                <!-- Left: Global Benchmark -->
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden opacity-70">
+                    <div class="absolute top-0 right-0 bg-stone-300 text-stone-600 text-xs px-3 py-1 rounded-bl-lg font-bold">BANGKOK (URBAN)</div>
+                    <h3 class="text-2xl font-serif text-stone-800 mb-4">Luxury Mall Focus</h3>
+                    <p class="text-stone-600 mb-4">High competition, exorbitant rent, and a saturated consumer base suffering from event fatigue in the top 5 mega-malls.</p>
+                    <ul class="space-y-2 text-sm text-stone-500">
+                        <li class="flex items-center"><span class="mr-2 text-stone-400">❖</span> High Customer Acquisition Cost (CAC)</li>
+                        <li class="flex items-center"><span class="mr-2 text-stone-400">❖</span> Focus on hyper-aesthetics over volume</li>
+                    </ul>
+                </div>
+
+                <!-- Arrow Indicator (Mobile: Down, Desktop: Right) -->
+                <div class="flex justify-center items-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2 md:mt-24 z-10">
+                    <div class="bg-stone-900 text-white rounded-full p-4 transform md:rotate-0 rotate-90 shadow-xl border-4 border-stone-100">
+                        ➔
+                    </div>
+                </div>
+
+                <!-- Right: Our Local Execution -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-orange-500 shadow-lg relative overflow-hidden transform md:scale-105 z-0">
+                    <div class="absolute top-0 right-0 bg-orange-600 text-white text-xs px-3 py-1 rounded-bl-lg font-bold">TIS-POP UP FOCUS</div>
+                    <h3 class="text-2xl font-serif text-stone-900 mb-4">Provincial Hubs & Festivals</h3>
+                    <p class="text-stone-700 mb-4">We target regional capitals, hypermarkets (Big C/Lotus), night markets, and local festivals where communities gather in massive numbers.</p>
+                    <ul class="space-y-2 text-sm text-stone-800 font-medium">
+                        <li class="flex items-center"><span class="mr-2 text-orange-500 font-bold">✓</span> Massive volume and lower operational costs</li>
+                        <li class="flex items-center"><span class="mr-2 text-orange-500 font-bold">✓</span> Mobile / Caravan setups for rapid deployment</li>
+                        <li class="flex items-center"><span class="mr-2 text-orange-500 font-bold">✓</span> Deep integration with local culture & KOLs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Our Turnkey Services -->
+    <section id="our-services" class="py-16 bg-stone-900 text-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">How We Work</span>
+                <h2 class="text-3xl font-bold text-white mb-4">End-to-End Mass Market Execution</h2>
+                <p class="text-lg text-stone-400 max-w-3xl">
+                    Running roadshows upcountry requires specific logistical expertise. We handle everything from local government permits to mobile booth fabrication and regional staffing.
+                </p>
+            </div>
+
+            <!-- Workflow Visualization -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <!-- Step 1 -->
+                <div class="bg-stone-800 p-8 rounded-xl border border-stone-700 hover:border-orange-500 transition-colors">
+                    <div class="text-orange-500 text-4xl mb-4 font-bold">01</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Regional Scouting & Routing</h4>
+                    <p class="text-stone-400 mb-4">We map out the most profitable routes across regions (Isan, North, South), securing space in high-traffic local centers, hypermarkets, and regional festivals.</p>
+                    <ul class="text-sm text-stone-500 space-y-1">
+                        <li>• Hypermarket/Night Market Access</li>
+                        <li>• Provincial Route Planning</li>
+                        <li>• Local Government Permits</li>
+                    </ul>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-stone-800 p-8 rounded-xl border border-stone-700 hover:border-orange-500 transition-colors">
+                    <div class="text-orange-500 text-4xl mb-4 font-bold">02</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Mobile Design & Build</h4>
+                    <p class="text-stone-400 mb-4">We design modular booths, transformed trucks, or inflatable structures that are durable for transport and fast to assemble, ensuring maximum brand impact anywhere.</p>
+                    <ul class="text-sm text-stone-500 space-y-1">
+                        <li>• Caravan & Food Truck Conversion</li>
+                        <li>• Durable Modular Structures</li>
+                        <li>• Weather-Proofing & Logistics</li>
+                    </ul>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-stone-800 p-8 rounded-xl border border-stone-700 hover:border-orange-500 transition-colors">
+                    <div class="text-orange-500 text-4xl mb-4 font-bold">03</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Local Operations & Hype</h4>
+                    <p class="text-stone-400 mb-4">We source regional MCs and staff who speak the local dialects. We orchestrate localized promotions and partner with regional micro-influencers to drive massive crowds.</p>
+                    <ul class="text-sm text-stone-500 space-y-1">
+                        <li>• Regional MCs & Staffing</li>
+                        <li>• Localized Sales Promos</li>
+                        <li>• Provincial Micro-Influencers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Service List -->
+                <div>
+                    <h3 class="text-2xl font-serif text-white mb-6">Scalable Budgeting</h3>
+                    <p class="text-stone-400 mb-6">Our roadshow model allows you to scale from a single provincial test to a 40-province mega-tour. We allocate budgets to maximize mobility and community engagement over expensive static rent.</p>
+                    <button onclick="scrollToSection('contact-us')" class="bg-white text-stone-900 px-6 py-3 rounded-lg font-bold hover:bg-orange-500 hover:text-white transition-colors">Request a Custom Quote</button>
+                </div>
+                <!-- Budget Chart -->
+                <div class="bg-stone-800 p-6 rounded-xl border border-stone-700">
+                    <h4 class="text-stone-300 font-medium mb-4 text-center text-sm">Typical Roadshow Budget Allocation</h4>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Lead Gen & Contact -->
+    <section id="contact-us" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl shadow-2xl border border-stone-100 overflow-hidden flex flex-col lg:flex-row">
+            
+            <!-- Left Side: Interactive Estimator -->
+            <div class="lg:w-1/2 p-8 md:p-12 bg-stone-50 border-r border-stone-200">
+                <div class="mb-8">
+                    <span class="text-orange-600 font-bold tracking-wider uppercase text-xs mb-2 block">Step 1</span>
+                    <h2 class="text-3xl font-bold text-stone-900 mb-2">Build Your Roadshow</h2>
+                    <p class="text-stone-600 text-sm">Select your parameters to instantly see our recommended approach for the mass market.</p>
+                </div>
+                
+                <div class="space-y-5 mb-8">
+                    <div>
+                        <label class="block text-sm font-semibold text-stone-800 mb-1">Brand Objective</label>
+                        <select id="input-goal" class="w-full bg-white border border-stone-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-orange-500 outline-none text-stone-700">
+                            <option value="awareness">Mass Awareness / Product Trial</option>
+                            <option value="sales">Inventory Clearance / High Volume Sales</option>
+                            <option value="test">Testing Provincial Demand</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-stone-800 mb-1">Estimated Budget Range</label>
+                        <select id="input-budget" class="w-full bg-white border border-stone-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-orange-500 outline-none text-stone-700">
+                            <option value="lean">Lean (Single Region Test / < 1M THB)</option>
+                            <option value="standard">Standard (Multi-Province Tour / 1M - 3M THB)</option>
+                            <option value="flagship">Flagship (Nationwide Festival Domination / 3M+ THB)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-stone-800 mb-1">Target Demographic</label>
+                        <select id="input-target" class="w-full bg-white border border-stone-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-orange-500 outline-none text-stone-700">
+                            <option value="mass">Mass Market / Families</option>
+                            <option value="genz">Provincial University Students (Gen Z)</option>
+                            <option value="luxury">Local High Net Worth (Business Owners)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button onclick="generateStrategy()" class="w-full bg-stone-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-stone-800 transition-all shadow-md">See Recommended Strategy</button>
+
+                <!-- Result Container -->
+                <div id="strategy-result" class="mt-8 hidden animate-fade-in bg-orange-50 p-6 rounded-xl border border-orange-100">
+                    <h4 class="font-bold text-stone-900 mb-3 border-b border-orange-200 pb-2">Your Provincial Direction:</h4>
+                    <div class="space-y-3 text-sm">
+                        <p><strong class="text-orange-600 block">Location Strategy:</strong> <span id="res-loc" class="text-stone-700"></span></p>
+                        <p><strong class="text-orange-600 block">Key Activation:</strong> <span id="res-act" class="text-stone-700"></span></p>
+                    </div>
+                    <p class="mt-4 text-xs text-stone-500 font-medium">➔ Ready to execute? Fill out the form to get a detailed proposal.</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Contact Form -->
+            <div class="lg:w-1/2 p-8 md:p-12 bg-white relative">
+                <div class="mb-8">
+                    <span class="text-stone-400 font-bold tracking-wider uppercase text-xs mb-2 block">Step 2</span>
+                    <h2 class="text-3xl font-bold text-stone-900 mb-2">Let's Hit The Road</h2>
+                    <p class="text-stone-600 text-sm">Contact TIS-POP UP to penetrate the Thai mass market with a customized roadshow strategy.</p>
+                </div>
+
+                <form onsubmit="event.preventDefault(); window.location.href='mailto:tisisan.global@gmail.com';">
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-500 mb-1">First Name</label>
+                                <input type="text" required class="w-full border-b border-stone-300 py-2 focus:border-orange-500 outline-none transition-colors" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-500 mb-1">Last Name</label>
+                                <input type="text" required class="w-full border-b border-stone-300 py-2 focus:border-orange-500 outline-none transition-colors" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-500 mb-1">Company / Brand Name</label>
+                            <input type="text" required class="w-full border-b border-stone-300 py-2 focus:border-orange-500 outline-none transition-colors" placeholder="Your Brand Ltd.">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-500 mb-1">Work Email</label>
+                            <input type="email" required class="w-full border-b border-stone-300 py-2 focus:border-orange-500 outline-none transition-colors" placeholder="john@company.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-500 mb-1">Tell us about your project</label>
+                            <textarea rows="3" class="w-full border-b border-stone-300 py-2 focus:border-orange-500 outline-none transition-colors" placeholder="We are looking to tour Isan in Q3..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="mt-8 w-full bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition-all shadow-lg shadow-orange-600/30">Submit Inquiry</button>
+                </form>
+
+                <div class="mt-8 pt-6 border-t border-stone-100 flex flex-col sm:flex-row justify-between text-sm text-stone-500">
+                    <div class="mb-2 sm:mb-0">
+                        <strong class="text-stone-800">Email:</strong> <a href="mailto:tisisan.global@gmail.com" class="hover:text-orange-600 transition-colors">tisisan.global@gmail.com</a>
+                    </div>
+                    <div>
+                        <strong class="text-stone-800">LINE OA:</strong> @TISPOPUP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <span class="text-xl font-bold text-white">TIS-<span class="text-orange-500">POP UP</span></span>
+                <p class="text-sm mt-2">Penetrating Thailand's Mass Market.</p>
+            </div>
+            <div class="text-sm text-stone-500">
+                &copy; 2024 TIS-POP UP. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // --- Navigation Logic ---
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            const menu = document.getElementById('mobile-menu');
+            if(!menu.classList.contains('hidden')){
+                menu.classList.add('hidden');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- Chart Data & Configurations ---
+        
+        // 1. Consumer Drivers Chart
+        const ctxDrivers = document.getElementById('driversChart').getContext('2d');
+        new Chart(ctxDrivers, {
+            type: 'bar',
+            data: {
+                labels: ['Product Trial & Freebies', 'Local Festival Tie-ins', 'Mass Promotions', 'Entertaining MCs', 'Photo Ops'],
+                datasets: [{
+                    label: 'Influence Score (0-10)',
+                    data: [9.5, 8.9, 8.2, 7.5, 6.0],
+                    backgroundColor: [
+                        '#EA580C', // Orange 600
+                        '#F97316', // Orange 500
+                        '#D6D3D1', // Stone 300
+                        '#D6D3D1',
+                        '#D6D3D1'
+                    ],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + ' / 10 Importance';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        grid: { color: '#E7E5E4' } // Stone 200
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 2. Platform Engagement Chart
+        const ctxPlatform = document.getElementById('platformChart').getContext('2d');
+        const platformData = {
+            reach: [90, 85, 45, 20], // FB, TikTok, Insta, Line
+            conversion: [45, 40, 30, 95]
+        };
+        const platformLabels = ['Facebook (Local Groups)', 'TikTok', 'Instagram', 'LINE OA & Physical Sales'];
+
+        let platformChart = new Chart(ctxPlatform, {
+            type: 'line',
+            data: {
+                labels: platformLabels,
+                datasets: [{
+                    label: 'Reach / Community Awareness (%)',
+                    data: platformData.reach,
+                    borderColor: '#EA580C',
+                    backgroundColor: 'rgba(234, 88, 12, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 6,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#EA580C',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'bottom' }
+                },
+                scales: {
+                    y: { beginAtZero: true, max: 100 }
+                }
+            }
+        });
+
+        function updatePlatformData(type) {
+            const btnReach = document.getElementById('btn-reach');
+            const btnConv = document.getElementById('btn-conv');
+
+            if (type === 'reach') {
+                platformChart.data.datasets[0].label = 'Reach / Community Awareness (%)';
+                platformChart.data.datasets[0].data = platformData.reach;
+                platformChart.data.datasets[0].borderColor = '#EA580C';
+                platformChart.data.datasets[0].backgroundColor = 'rgba(234, 88, 12, 0.1)';
+                
+                btnReach.classList.add('bg-stone-800', 'text-white');
+                btnReach.classList.remove('bg-stone-200', 'text-stone-600');
+                btnConv.classList.remove('bg-stone-800', 'text-white');
+                btnConv.classList.add('bg-stone-200', 'text-stone-600');
+            } else {
+                platformChart.data.datasets[0].label = 'Conversion & CRM Retention (%)';
+                platformChart.data.datasets[0].data = platformData.conversion;
+                platformChart.data.datasets[0].borderColor = '#059669'; // Emerald 600
+                platformChart.data.datasets[0].backgroundColor = 'rgba(5, 150, 105, 0.1)';
+
+                btnConv.classList.add('bg-stone-800', 'text-white');
+                btnConv.classList.remove('bg-stone-200', 'text-stone-600');
+                btnReach.classList.remove('bg-stone-800', 'text-white');
+                btnReach.classList.add('bg-stone-200', 'text-stone-600');
+            }
+            platformChart.update();
+        }
+
+        // 3. Budget Allocation Chart (Doughnut)
+        const ctxBudget = document.getElementById('budgetChart').getContext('2d');
+        new Chart(ctxBudget, {
+            type: 'doughnut',
+            data: {
+                labels: ['Mobile Build/Logistics', 'Regional Space Rental', 'Local MCs & Promoters', 'Geo-Targeted Ads'],
+                datasets: [{
+                    data: [40, 20, 25, 15],
+                    backgroundColor: [
+                        '#EA580C', // Orange 600
+                        '#FDBA74', // Orange 300
+                        '#57534E', // Stone 600
+                        '#A8A29E'  // Stone 400
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right', labels: { color: '#E7E5E4', boxWidth: 12, font: {size: 11} } }
+                },
+                cutout: '70%'
+            }
+        });
+
+        // --- Interaction Logic: Localization Toggle ---
+        const localizationData = {
+            behavior: {
+                global: { title: "Bangkok Malls", text: "High competition, exorbitant rent, and a saturated consumer base suffering from event fatigue in the top 5 mega-malls.", points: ["High Customer Acquisition Cost (CAC)", "Focus on hyper-aesthetics over volume"] },
+                local: { title: "Provincial Hubs & Festivals", text: "We target regional capitals, hypermarkets (Big C/Lotus), night markets, and local festivals where communities gather in massive numbers.", points: ["Massive volume and lower operational costs", "Mobile / Caravan setups for rapid deployment", "Deep integration with local culture"] }
+            },
+            tactical: {
+                global: { title: "Niche Influencers", text: "Bangkok focuses on expensive macro-influencers and highly curated visual aesthetics that often don't translate to mass sales.", points: ["High cost per post", "Brand-awareness focused"] },
+                local: { title: "Local MCs & Geo-Targeting", text: "Upcountry success requires high-energy local MCs, interactive games with crowds, and Facebook/TikTok ads geo-fenced to the specific province.", points: ["We hire regional MCs speaking local dialects", "Interactive games & immediate rewards", "Hyper-local social media groups"] }
+            }
+        };
+
+        function setLocalizationMode(mode) {
+            const btnBeh = document.getElementById('btn-behavior');
+            const btnTac = document.getElementById('btn-tactical');
+            const container = document.getElementById('localization-content');
+            
+            // Visual Toggle State
+            if(mode === 'behavior') {
+                btnBeh.classList.add('bg-white', 'text-stone-900', 'shadow');
+                btnBeh.classList.remove('text-stone-600');
+                btnTac.classList.remove('bg-white', 'text-stone-900', 'shadow');
+                btnTac.classList.add('text-stone-600');
+            } else {
+                btnTac.classList.add('bg-white', 'text-stone-900', 'shadow');
+                btnTac.classList.remove('text-stone-600');
+                btnBeh.classList.remove('bg-white', 'text-stone-900', 'shadow');
+                btnBeh.classList.add('text-stone-600');
+            }
+
+            // Update Content
+            const data = localizationData[mode];
+            
+            // Left Card
+            container.children[0].querySelector('h3').textContent = data.global.title;
+            container.children[0].querySelector('p').textContent = data.global.text;
+            const ulLeft = container.children[0].querySelector('ul');
+            ulLeft.innerHTML = data.global.points.map(p => `<li class="flex items-center"><span class="mr-2 text-stone-400">❖</span> ${p}</li>`).join('');
+
+            // Right Card
+            container.children[2].querySelector('h3').textContent = data.local.title;
+            container.children[2].querySelector('p').textContent = data.local.text;
+            const ulRight = container.children[2].querySelector('ul');
+            ulRight.innerHTML = data.local.points.map(p => `<li class="flex items-center"><span class="mr-2 text-orange-500 font-bold">✓</span> ${p}</li>`).join('');
+        }
+
+        // --- Interaction Logic: Strategy Generator ---
+        function generateStrategy() {
+            const goal = document.getElementById('input-goal').value;
+            const budget = document.getElementById('input-budget').value;
+            const target = document.getElementById('input-target').value;
+            
+            const resContainer = document.getElementById('strategy-result');
+            const resLoc = document.getElementById('res-loc');
+            const resAct = document.getElementById('res-act');
+
+            let locText = "";
+            let actText = "";
+
+            // Simple Logic Tree for TIS-POP UP Pitch
+            if (budget === 'lean') {
+                locText = "Mobile Caravan Roadshow targeting Hypermarket parking lots (Big C/Lotus) in Tier 2 provinces.";
+            } else if (budget === 'standard') {
+                locText = "Regional Hub Domination (e.g., Central Khon Kaen or Chiang Mai Night Bazaar) with a multi-day modular setup.";
+            } else {
+                locText = "Nationwide Festival Sponsorship (e.g., Local Songkran/Loy Krathong stages) across 4 major regions simultaneously.";
+            }
+
+            if (goal === 'awareness') {
+                actText = "High-energy stage with a famous local MC, massive product sampling, and a 'Share on TikTok for a prize' mechanic.";
+            } else if (goal === 'sales') {
+                actText = "Aggressive bundle promotions (Buy 1 Get 1), loud flash sales every 2 hours, and immediate checkout via QR code.";
+            } else {
+                actText = "Interactive 'Taste Test' or 'Try On' booths collecting localized feedback via tablets in exchange for exclusive merch.";
+            }
+
+            // Target Tweaks
+            if (target === 'genz') {
+                locText += " Route includes major provincial universities (e.g., Chiang Mai University, Khon Kaen University).";
+                actText += " Partner with local university cheer/dance teams for viral content.";
+            } else if (target === 'luxury') {
+                locText = "Target exclusive provincial luxury housing estates or premium local golf clubs instead of mass markets.";
+                actText = "Shift from loud MCs to VIP personalized consultation sessions.";
+            }
+
+            resLoc.textContent = locText;
+            resAct.textContent = actText;
+
+            resContainer.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
